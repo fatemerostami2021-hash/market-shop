@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Vazirmatn", sans-serif; /* این خط اضافه شد */
+
+  --color-hyper-light-bg: #FFFFFF;
+  --color-hyper-light-text: #1A1A1A;
+  --color-hyper-light-accent: #FF4081;
+  --color-hyper-light-card: #F9F9F9;
+  --color-hyper-light-border: #E5E5E5;
+
+  --color-hyper-dark-bg: #0A0A0A;
+  --color-hyper-dark-text: #FFFFFF;
+  --color-hyper-dark-accent: #FFD700;
+  --color-hyper-dark-sale: #FF0000;
+  --color-hyper-dark-card: #1A1A1A;
+  --color-hyper-dark-border: #333333;
+}
