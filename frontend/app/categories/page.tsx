@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import PageShell from '../components/layout/PageShell'
 import { CATEGORIES } from '../../src/lib/categories'
+import { IMAGES } from '../../src/data/images'
+import ImageSlot from '../components/ui/ImageSlot'
 
 export const metadata = { title: 'دسته‌بندی کالاها | کیمیا مارت' }
 
@@ -11,7 +13,7 @@ export default function CategoriesPage() {
         {CATEGORIES.map((c) => (
           <div key={c.slug} className="group rounded-3xl overflow-hidden border border-hyper-light-border dark:border-hyper-dark-border bg-hyper-light-card dark:bg-hyper-dark-card hover:shadow-2xl transition-all">
             <Link href={`/products?category=${c.slug}`} className="block h-44 overflow-hidden bg-black">
-              <img src={`/images/categories/${c.slug}.svg`} alt={c.fa} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <ImageSlot src={IMAGES.categories[c.slug]} alt={c.fa} icon={c.icon} iconSize={64} imgClassName="group-hover:scale-105 transition-transform duration-700" />
             </Link>
             <div className="p-5">
               <Link href={`/products?category=${c.slug}`} className="font-black text-lg hover:text-hyper-dark-accent transition-colors">{c.fa}</Link>

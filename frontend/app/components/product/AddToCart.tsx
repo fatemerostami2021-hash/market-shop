@@ -2,14 +2,13 @@
 import { useState } from 'react'
 import { IoCartOutline, IoCheckmark } from 'react-icons/io5'
 import { useCart } from '../../../src/store/cart'
-import { categoryImage, } from '../../../src/lib/categories'
 import { Product, effectivePrice, faName } from '../../../src/lib/products'
 
 export default function AddToCart({ product, full = false }: { product: Product; full?: boolean }) {
   const add = useCart((s) => s.add)
   const [done, setDone] = useState(false)
   const onClick = () => {
-    add({ id: product.id, name: faName(product.name), price: effectivePrice(product), image: product.image_url || categoryImage(product.category) })
+    add({ id: product.id, name: faName(product.name), price: effectivePrice(product), image: product.image_url || '' })
     setDone(true)
     setTimeout(() => setDone(false), 1200)
   }

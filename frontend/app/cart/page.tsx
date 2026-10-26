@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { IoAdd, IoRemove, IoTrashOutline } from 'react-icons/io5'
+import { IoAdd, IoImageOutline, IoRemove, IoTrashOutline } from 'react-icons/io5'
 import PageShell from '../components/layout/PageShell'
+import ImageSlot from '../components/ui/ImageSlot'
 import { useCart } from '../../src/store/cart'
 import { toman } from '../../src/lib/products'
 
@@ -24,7 +25,7 @@ export default function CartPage() {
           <div className="md:col-span-2 space-y-4">
             {items.map((i) => (
               <div key={i.id} className="flex items-center gap-4 rounded-2xl border border-hyper-light-border dark:border-hyper-dark-border bg-hyper-light-card dark:bg-hyper-dark-card p-4">
-                <img src={i.image} alt={i.name} className="w-20 h-20 rounded-xl object-cover" />
+                <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0"><ImageSlot src={i.image && !i.image.startsWith('/images/') ? i.image : ''} alt={i.name} icon={IoImageOutline} iconSize={28} /></div>
                 <div className="flex-1">
                   <Link href={`/products/${i.id}`} className="font-bold hover:text-hyper-dark-accent transition-colors">{i.name}</Link>
                   <p className="text-sm text-hyper-dark-sale dark:text-hyper-dark-accent font-bold mt-1">{toman(i.price)} تومان</p>

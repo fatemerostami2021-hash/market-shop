@@ -3,6 +3,9 @@
 import { useEffect, useState } from 'react'
 import { IoCheckmarkCircleOutline, IoClose, IoDownloadOutline, IoEllipsisVertical, IoShareOutline } from 'react-icons/io5'
 import '../../../src/lib/pwa'
+import { IoPhonePortraitOutline } from 'react-icons/io5'
+import ImageSlot from '../ui/ImageSlot'
+import { IMAGES } from '../../../src/data/images'
 
 export default function AppDownload() {
   const [canInstall, setCanInstall] = useState(false)
@@ -37,7 +40,7 @@ export default function AppDownload() {
       <div className="container mx-auto px-6 grid md:grid-cols-2 items-center gap-10">
         <div className="hidden md:block">
           <button onClick={install} aria-label="نصب اپلیکیشن کیمیا مارت" className="group relative block w-full rounded-3xl overflow-hidden border border-hyper-dark-border hover:border-hyper-dark-accent transition-colors">
-            <img src="/images/app-mockup.svg" alt="اپلیکیشن کیمیا مارت" className="w-full group-hover:scale-105 transition-transform duration-700" />
+            <div className="aspect-[7/5]"><ImageSlot tone="dark" src={IMAGES.app} alt="اپلیکیشن کیمیا مارت" icon={IoPhonePortraitOutline} iconSize={96} imgClassName="group-hover:scale-105 transition-transform duration-700" /></div>
             {!installed && (
               <span className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-hyper-dark-accent text-black text-xs font-black px-4 py-2 rounded-full">
                 برای نصب اپلیکیشن کلیک کنید

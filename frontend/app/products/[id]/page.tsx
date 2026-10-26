@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import PageShell from '../../components/layout/PageShell'
 import AddToCart from '../../components/product/AddToCart'
-import { categoryBySlug, categoryImage } from '../../../src/lib/categories'
+import { categoryBySlug } from '../../../src/lib/categories'
+import ImageSlot from '../../components/ui/ImageSlot'
+import { IoImageOutline } from 'react-icons/io5'
 import { discountPercent, effectivePrice, faName, fetchProduct, toman } from '../../../src/lib/products'
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -23,7 +25,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
       </nav>
       <div className="grid md:grid-cols-2 gap-10">
         <div className="rounded-3xl overflow-hidden border border-hyper-light-border dark:border-hyper-dark-border bg-black">
-          <img src={p.image_url || categoryImage(p.category)} alt={faName(p.name)} className="w-full aspect-square object-cover" />
+          <div className="aspect-square"><ImageSlot src={p.image_url} alt={faName(p.name)} icon={cat?.icon ?? IoImageOutline} iconSize={96} /></div>
         </div>
         <div>
           {cat && <span className="text-xs text-hyper-light-accent dark:text-hyper-dark-accent font-semibold">{cat.fa}</span>}

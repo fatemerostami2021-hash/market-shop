@@ -1,3 +1,6 @@
+import { IoBasketOutline } from 'react-icons/io5'
+import ImageSlot from '../ui/ImageSlot'
+import { IMAGES } from '../../../src/data/images'
 // سکشن هیرو — تبلیغ اصلی صفحه اول
 import { IoArrowBack, IoRocketOutline, IoShieldCheckmarkOutline, IoThumbsUpOutline } from 'react-icons/io5'
 
@@ -31,8 +34,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="hidden md:block h-[420px]">
-            <img src="/images/hero.svg"
-              alt="خرید روزانه" className="w-full h-full object-cover" />
+            <ImageSlot tone="dark" src={IMAGES.hero} alt="خرید روزانه" icon={IoBasketOutline} iconSize={140} />
           </div>
         </div>
       </div>

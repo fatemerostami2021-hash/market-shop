@@ -1,6 +1,8 @@
 // دسته‌بندی‌ها — نمایش دایره‌ای
 import Link from 'next/link'
 import { CATEGORIES } from '../../../src/lib/categories'
+import { IMAGES } from '../../../src/data/images'
+import ImageSlot from '../ui/ImageSlot'
 
 export default function CategoryCircles() {
   return (
@@ -16,7 +18,7 @@ export default function CategoryCircles() {
         {CATEGORIES.filter((c) => c.home).map((c) => (
           <Link key={c.slug} href={`/products?category=${c.slug}`} className="group text-center">
             <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-transparent group-hover:border-hyper-dark-accent transition-all bg-hyper-light-card dark:bg-hyper-dark-card">
-              <img src={`/images/categories/${c.slug}.svg`} alt={c.fa} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <ImageSlot src={IMAGES.categories[c.slug]} alt={c.fa} icon={c.icon} iconSize={32} imgClassName="group-hover:scale-110 transition-transform duration-500" />
             </div>
             <p className="text-xs font-bold mt-3">{c.fa}</p>
             <p className="text-[10px] text-gray-500">{c.count}</p>

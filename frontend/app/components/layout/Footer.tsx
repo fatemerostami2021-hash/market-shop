@@ -1,5 +1,7 @@
 // فوتر — درباره، راهنما، خدمات، امنیت و تماس
-import { IoCallOutline, IoLocationOutline, IoShieldCheckmarkOutline, IoLogoInstagram, IoLogoLinkedin, IoLogoWhatsapp } from 'react-icons/io5'
+import { IoCallOutline, IoLocationOutline, IoMailOutline, IoShieldCheckmarkOutline } from 'react-icons/io5'
+import SocialLinks from './SocialLinks'
+import { SITE } from '../../../src/data/site'
 
 export default function Footer() {
   return (
@@ -12,8 +14,9 @@ export default function Footer() {
           <p className="text-gray-400 text-xs leading-6 mb-5">
             هایپرمارکت تجربه‌محور آنلاین کیمیا مارت؛ کالاهای اصلی، انتخاب دقیق و تحویل قابل اعتماد.
           </p>
-          <p className="flex items-center gap-2 text-gray-300 text-xs mb-2"><IoCallOutline className="text-hyper-dark-accent" /> ۰۲۱-۹۱۰۹۰۵۰۹</p>
-          <p className="flex items-center gap-2 text-gray-300 text-xs"><IoLocationOutline className="text-hyper-dark-accent" /> تهران، خیابان ولیعصر، برج هایپرینو</p>
+          <a href={SITE.phoneHref} className="flex items-center gap-2 text-gray-300 text-xs mb-2 hover:text-white"><IoCallOutline className="text-hyper-dark-accent" /> <span dir="ltr">{SITE.phoneDisplay}</span></a>
+          <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 text-gray-300 text-xs mb-2 hover:text-white"><IoMailOutline className="text-hyper-dark-accent" /> <span dir="ltr">{SITE.email}</span></a>
+          <p className="flex items-center gap-2 text-gray-300 text-xs"><IoLocationOutline className="text-hyper-dark-accent" /> {SITE.address}</p>
         </div>
         <div>
           <h5 className="font-bold text-hyper-dark-accent mb-4">درباره هایپرینو</h5>
@@ -45,12 +48,11 @@ export default function Footer() {
       </div>
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© ۱۴۰۵ کیمیا مارت — تمامی حقوق محفوظ است.</p>
-          <div className="flex items-center gap-4 text-lg">
-            <IoLogoInstagram className="hover:text-hyper-dark-accent transition-colors cursor-pointer" />
-            <IoLogoLinkedin className="hover:text-hyper-dark-accent transition-colors cursor-pointer" />
-            <IoLogoWhatsapp className="hover:text-hyper-dark-accent transition-colors cursor-pointer" />
+          <div className="text-center md:text-start">
+            <p>© ۱۴۰۵ کیمیا مارت — تمامی حقوق محفوظ است.</p>
+            <p className="mt-1">طراحی و توسعه: <a href={SITE.designer.url} target="_blank" rel="noopener noreferrer" className="text-hyper-dark-accent hover:underline">{SITE.designer.name}</a></p>
           </div>
+          <SocialLinks className="flex items-center gap-4 text-lg" />
           <div className="flex items-center gap-2">
             <IoShieldCheckmarkOutline className="text-hyper-dark-accent" /> نماد اعتماد الکترونیکی و ساماندهی
           </div>

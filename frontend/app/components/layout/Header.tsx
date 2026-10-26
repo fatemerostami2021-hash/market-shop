@@ -5,6 +5,8 @@ import ThemeSwitch from '../ThemeSwitch'
 import LanguageSwitch from '../LanguageSwitch'
 import MegaNav from './MegaNav'
 import CartLink from './CartLink'
+import SocialLinks from './SocialLinks'
+import { SITE } from '../../../src/data/site'
 
 export default function Header() {
   return (
@@ -13,10 +15,8 @@ export default function Header() {
       <div className="bg-hyper-dark-bg dark:bg-black text-white text-xs">
         <div className="container mx-auto px-6 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1"><IoCallOutline /> پشتیبانی: ۰۲۱-۹۱۰۹۰۵۰۹</span>
-            <div className="hidden md:flex items-center gap-2 text-gray-400">
-              <IoLogoInstagram /> <IoLogoLinkedin /> <IoLogoWhatsapp />
-            </div>
+            <a href={SITE.phoneHref} className="flex items-center gap-1 hover:text-hyper-dark-accent transition-colors"><IoCallOutline /> پشتیبانی: <span dir="ltr">{SITE.phoneDisplay}</span></a>
+            <SocialLinks className="hidden md:flex items-center gap-3 text-gray-400" />
           </div>
           <span className="text-hyper-dark-accent font-semibold">ارسال رایگان سفارش‌های بالای ۱,۵۰۰,۰۰۰ تومان در تهران</span>
         </div>

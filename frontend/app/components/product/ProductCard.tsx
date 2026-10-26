@@ -1,7 +1,9 @@
 // کارت محصول
 import Link from 'next/link'
 import { IoStar } from 'react-icons/io5'
-import { categoryImage } from '../../../src/lib/categories'
+import { categoryBySlug } from '../../../src/lib/categories'
+import ImageSlot from '../ui/ImageSlot'
+import { IoImageOutline } from 'react-icons/io5'
 import { Product, discountPercent, effectivePrice, faName, toman } from '../../../src/lib/products'
 import AddToCart from './AddToCart'
 
@@ -18,8 +20,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
       )}
       <Link href={`/products/${product.id}`} className="block overflow-hidden h-52 bg-gray-100 dark:bg-black">
-        <img src={product.image_url || categoryImage(product.category)} alt={name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <ImageSlot src={product.image_url} alt={name} icon={categoryBySlug(product.category)?.icon ?? IoImageOutline} iconSize={56} imgClassName="group-hover:scale-110 transition-transform duration-700" />
       </Link>
       <div className="p-5">
         <span className="text-xs text-hyper-light-accent dark:text-hyper-dark-accent font-semibold">کیمیا مارت</span>

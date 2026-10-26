@@ -1,7 +1,9 @@
 // بسته‌های خوشمزه امروز — سه بسته پیشنهادی
-import { IoCartOutline } from 'react-icons/io5'
+import { IoCafeOutline, IoCartOutline, IoFilmOutline, IoRestaurantOutline } from 'react-icons/io5'
+import ImageSlot from '../ui/ImageSlot'
+import { IMAGES } from '../../../src/data/images'
 
-const BUNDLE_IMGS = ['/images/bundles/breakfast.svg', '/images/bundles/lunch.svg', '/images/bundles/party.svg']
+const BUNDLE_ICONS = [IoCafeOutline, IoRestaurantOutline, IoFilmOutline]
 
 const BUNDLES = [
   { tag: 'پیشنهاد امروز', title: 'صبحانهٔ دونفرهٔ کامل', desc: 'نان تازه، پنیر، عسل، کره، آبی‌پرتقال و قهوه', price: '۲۴۹,۰۰۰' },
@@ -27,8 +29,7 @@ export default function Bundles() {
           {BUNDLES.map((b, i) => (
             <div key={b.title} className="bg-white dark:bg-hyper-dark-card rounded-3xl overflow-hidden border border-hyper-light-border dark:border-hyper-dark-border shadow-sm hover:shadow-2xl transition-all group">
               <div className="relative h-52">
-                <img src={BUNDLE_IMGS[i]}
-                  alt={b.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <ImageSlot src={IMAGES.bundles[i]} alt={b.title} icon={BUNDLE_ICONS[i]} iconSize={64} imgClassName="group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-4 right-4 bg-black/80 text-hyper-dark-accent text-xs font-bold px-3 py-1.5 rounded-full">
                   {b.tag}
                 </span>
