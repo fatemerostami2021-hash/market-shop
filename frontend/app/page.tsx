@@ -16,9 +16,9 @@ export default function Home() {
       <Header />
       <Hero />
       <CategoryCircles />
-      <FeaturedProducts title="پیشنهادهای ویژه هایپرینو" subtitle="فرصت محدود" />
+      <FeaturedProducts title="پیشنهادهای ویژه هایپرینو" subtitle="فرصت محدود" variant="discount" />
       <DiscountBanner />
-      <FeaturedProducts title="پرفروش‌های این هفته" subtitle="انتخاب هزاران مشتری" />
+      <FeaturedProducts title="پرفروش‌های این هفته" subtitle="انتخاب هزاران مشتری" variant="best" />
       <WhyUs />
       <Bundles />
       <AppDownload />

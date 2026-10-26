@@ -11,9 +11,9 @@ export default function DiscountBanner() {
             تا <span className="text-hyper-dark-accent">٪۳۵</span> تخفیف روی تازه‌های فصل
           </h3>
           <p className="text-gray-300 text-sm mb-8">از پنچ‌شنبه تا شنبه؛ میوه، سبزیجات و پروتئین تازه با تصمیم یازگشت وجه.</p>
-          <button className="inline-flex items-center gap-2 bg-hyper-dark-accent hover:bg-yellow-500 text-black font-black py-3 px-10 rounded-xl transition-all hover:scale-105">
+          <a href="/products?discounted=1&section=discounts" className="inline-flex items-center gap-2 bg-hyper-dark-accent hover:bg-yellow-500 text-black font-black py-3 px-10 rounded-xl transition-all hover:scale-105">
             همین حالا خرید کنید <IoArrowBack />
-          </button>
+          </a>
         </div>
       </div>
     </section>

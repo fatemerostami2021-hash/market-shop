@@ -12,10 +12,12 @@ router.get('/', async (req, res) => {
     const offset = (page - 1) * limit;
 
     const result = await pool.query(
-      `SELECT id, name, slug, description, price, discount_price, stock, image_url
-       FROM products
-       WHERE is_active = TRUE
-       ORDER BY created_at DESC
+      `SELECT p.id, p.name, p.slug, p.description, p.price, p.discount_price, p.stock, p.image_url,
+              c.slug AS category
+       FROM products p
+       LEFT JOIN categories c ON c.id = p.category_id
+       WHERE p.is_active = TRUE
+       ORDER BY p.created_at DESC
        LIMIT $1 OFFSET $2`,
       [limit, offset]
     );

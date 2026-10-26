@@ -31,7 +31,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="hidden md:block h-[420px]">
-            <img src="https://placehold.co/900x840/2a1a10/FFD700?text=Groceries"
+            <img src="/images/hero.svg"
               alt="خرید روزانه" className="w-full h-full object-cover" />
           </div>
         </div>

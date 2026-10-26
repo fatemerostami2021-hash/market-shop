@@ -18,28 +18,28 @@ export default function Footer() {
         <div>
           <h5 className="font-bold text-hyper-dark-accent mb-4">درباره هایپرینو</h5>
           <ul className="space-y-2.5 text-gray-400 text-xs">
-            <li><a href="#" className="hover:text-white transition-colors">داستان ما</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">همکاری با ما</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">فرصت‌های شغلی</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">تماس با ما</a></li>
+            <li><a href="/info/about" className="hover:text-white transition-colors">داستان ما</a></li>
+            <li><a href="/info/partnership" className="hover:text-white transition-colors">همکاری با ما</a></li>
+            <li><a href="/info/careers" className="hover:text-white transition-colors">فرصت‌های شغلی</a></li>
+            <li><a href="/info/contact" className="hover:text-white transition-colors">تماس با ما</a></li>
           </ul>
         </div>
         <div>
           <h5 className="font-bold text-hyper-dark-accent mb-4">راهنمای خرید</h5>
           <ul className="space-y-2.5 text-gray-400 text-xs">
-            <li><a href="#" className="hover:text-white transition-colors">روش ثبت سفارش</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">شیوه‌های پرداخت</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">نحوه ارسال سفارش</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">حریم خصوصی</a></li>
+            <li><a href="/info/how-to-order" className="hover:text-white transition-colors">روش ثبت سفارش</a></li>
+            <li><a href="/info/payment" className="hover:text-white transition-colors">شیوه‌های پرداخت</a></li>
+            <li><a href="/info/shipping" className="hover:text-white transition-colors">نحوه ارسال سفارش</a></li>
+            <li><a href="/info/privacy" className="hover:text-white transition-colors">حریم خصوصی</a></li>
           </ul>
         </div>
         <div>
           <h5 className="font-bold text-hyper-dark-accent mb-4">خدمات مشتریان</h5>
           <ul className="space-y-2.5 text-gray-400 text-xs">
-            <li><a href="#" className="hover:text-white transition-colors">پیگیری سفارش</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">رویه بازگرداندن کالا</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">پرسش‌های متداول</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">گزارش مشکل</a></li>
+            <li><a href="/info/tracking" className="hover:text-white transition-colors">پیگیری سفارش</a></li>
+            <li><a href="/info/returns" className="hover:text-white transition-colors">رویه بازگرداندن کالا</a></li>
+            <li><a href="/info/faq" className="hover:text-white transition-colors">پرسش‌های متداول</a></li>
+            <li><a href="/info/report" className="hover:text-white transition-colors">گزارش مشکل</a></li>
           </ul>
         </div>
       </div>

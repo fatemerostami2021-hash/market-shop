@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { IoChevronDown } from 'react-icons/io5'
 import { useLocale } from '../LocaleProvider'
+import { CATEGORIES as ALL_CATEGORIES } from '../../../src/lib/categories'
+
+const CATEGORIES = ALL_CATEGORIES.filter((c) => c.menu)
 
 type Section = 'categories' | 'best' | 'new'
 
@@ -26,16 +29,6 @@ const T = {
   },
 }
 
-const CATEGORIES = [
-  { slug: 'fruits-veg', fa: 'میوه و سبزی', en: 'Fruits & Vegetables',
-    sub: [{ slug: 'fruits', fa: 'میوه تازه', en: 'Fresh fruit' }, { slug: 'veg', fa: 'سبزیجات', en: 'Vegetables' }, { slug: 'herbs', fa: 'سبزی خوردن', en: 'Herbs' }] },
-  { slug: 'dairy', fa: 'لبنیات', en: 'Dairy',
-    sub: [{ slug: 'milk', fa: 'شیر', en: 'Milk' }, { slug: 'cheese', fa: 'پنیر', en: 'Cheese' }, { slug: 'yogurt', fa: 'ماست', en: 'Yogurt' }] },
-  { slug: 'protein', fa: 'پروتئین', en: 'Meat & Protein',
-    sub: [{ slug: 'chicken', fa: 'مرغ', en: 'Chicken' }, { slug: 'beef', fa: 'گوشت قرمز', en: 'Beef' }, { slug: 'fish', fa: 'ماهی', en: 'Fish' }] },
-  { slug: 'drinks', fa: 'نوشیدنی', en: 'Drinks',
-    sub: [{ slug: 'juice', fa: 'آبمیوه', en: 'Juice' }, { slug: 'soda', fa: 'نوشابه', en: 'Soft drinks' }, { slug: 'tea', fa: 'چای و قهوه', en: 'Tea & coffee' }] },
-]
 const BRANDS = ['Brand A', 'Brand B', 'Brand C', 'Brand D']
 
 export default function MegaNav() {

@@ -1,26 +1,20 @@
-// app/components/home/FeaturedProducts.tsx
+// بخش محصولات صفحه اصلی — پیشنهاد ویژه (تخفیف‌دارها) یا پرفروش‌ها
+import Link from 'next/link'
 import { IoArrowBack } from 'react-icons/io5'
-import ProductCard, { Product } from '../product/ProductCard'
+import ProductCard from '../product/ProductCard'
+import { fetchProducts } from '../../../src/lib/products'
 
-async function getProducts(): Promise<Product[]> {
-  try {
-    const res = await fetch('http://localhost:5000/api/products', { cache: 'no-store' })
-    if (!res.ok) return []
-    const data = await res.json()
-    return Array.isArray(data.data) ? data.data : []
-  } catch {
-    return []
-  }
-}
-
-export default async function FeaturedProducts({ 
-  title = 'پیشنهادهای ویژه هایپرینو', 
-  subtitle = 'فرصت محدود' 
-}: { 
-  title?: string; 
-  subtitle?: string 
-}) {
-  const products = await getProducts()
+export default async function FeaturedProducts({
+  title = 'پیشنهادهای ویژه هایپرینو',
+  subtitle = 'فرصت محدود',
+  variant = 'discount',
+}: { title?: string; subtitle?: string; variant?: 'discount' | 'best' }) {
+  const all = await fetchProducts()
+  let items = variant === 'discount'
+    ? all.filter((p) => p.discount_price && p.discount_price > 0)
+    : [...all].sort((a, b) => (b.sold ?? 0) - (a.sold ?? 0))
+  if (items.length === 0) items = all
+  const href = variant === 'discount' ? '/products?discounted=1&section=discounts' : '/products?section=best'
 
   return (
     <section className="bg-black dark:bg-black py-14 my-6">
@@ -33,20 +27,13 @@ export default async function FeaturedProducts({
               {title}
             </h3>
           </div>
-          <a href="#" className="text-sm text-hyper-dark-accent flex items-center gap-1 hover:underline">
-            همه شگفت‌انگیزها <IoArrowBack />
-          </a>
+          <Link href={href} className="text-sm text-hyper-dark-accent flex items-center gap-1 hover:underline">
+            مشاهده همه <IoArrowBack />
+          </Link>
         </div>
-
-        {products.length === 0 ? (
-          <p className="text-center text-gray-500 py-10">محصولی یافت نشد.</p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.slice(0, 8).map((p: Product) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {items.slice(0, 8).map((p) => <ProductCard key={p.id} product={p} />)}
+        </div>
       </div>
     </section>
   )

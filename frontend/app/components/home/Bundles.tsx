@@ -1,6 +1,8 @@
 // بسته‌های خوشمزه امروز — سه بسته پیشنهادی
 import { IoCartOutline } from 'react-icons/io5'
 
+const BUNDLE_IMGS = ['/images/bundles/breakfast.svg', '/images/bundles/lunch.svg', '/images/bundles/party.svg']
+
 const BUNDLES = [
   { tag: 'پیشنهاد امروز', title: 'صبحانهٔ دونفرهٔ کامل', desc: 'نان تازه، پنیر، عسل، کره، آبی‌پرتقال و قهوه', price: '۲۴۹,۰۰۰' },
   { tag: 'انتخاب سرآشپز', title: 'سبد ناهار سالم', desc: 'فیلهٔ سالمون، سبزیجات تازه، کینوا و سس لیمو', price: '۸۹۰,۰۰۰' },
@@ -22,10 +24,10 @@ export default function Bundles() {
           <a href="#" className="text-sm text-hyper-dark-sale hover:underline">دیدن پیشنهاد فردا</a>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {BUNDLES.map((b) => (
+          {BUNDLES.map((b, i) => (
             <div key={b.title} className="bg-white dark:bg-hyper-dark-card rounded-3xl overflow-hidden border border-hyper-light-border dark:border-hyper-dark-border shadow-sm hover:shadow-2xl transition-all group">
               <div className="relative h-52">
-                <img src={`https://placehold.co/600x400/1A1A1A/FFD700?text=${encodeURIComponent(b.title)}`}
+                <img src={BUNDLE_IMGS[i]}
                   alt={b.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <span className="absolute top-4 right-4 bg-black/80 text-hyper-dark-accent text-xs font-bold px-3 py-1.5 rounded-full">
                   {b.tag}
